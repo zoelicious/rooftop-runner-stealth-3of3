@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rooftop Runner — Stealth on the Night Roofs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="game" width="960" height="720"></canvas>
+    <div id="banner" class="hidden"></div>
+    <div id="toast" class="hidden"></div>
+  </div>
+  <aside id="panel">
+    <header>
+      <h1>ROOFTOP RUNNER</h1>
+      <div class="sub">Level 1 of 3 &middot; Night 1 &middot; <span id="clock">0:00</span></div>
+      <div class="sub ghost">GHOST BONUS +500 if unseen</div>
+    </header>
+
+    <section class="block">
+      <div class="row"><span class="label">DETECTION</span><span id="detectionWord" class="value warn">CALM</span></div>
+      <div id="alarmBar"><div id="alarmFill"></div><span id="alarmMark">&#9650;</span></div>
+      <div class="scale"><span>CALM</span><span>UNEASY</span><span>HUNTED</span><span>ALARM</span></div>
+      <div class="row"><span class="label">VISIBILITY</span><span id="visibility" class="value">IN SHADOW</span></div>
+      <div class="row"><span class="label">NOISE</span><span id="noise" class="value">SILENT</span></div>
+      <div class="row"><span class="label">LETTERS</span><span id="letters" class="value">0 / 3</span></div>
+      <div class="row"><span class="label">SPOTTED</span><span id="spotted" class="value">0</span></div>
+      <div class="row"><span class="label">STRIKES</span><span id="strikes" class="value strikes">&#9679;&#9679;&#9679;</span></div>
+      <div class="row"><span class="label">PEBBLES</span><span id="pebbles" class="value">&#9679;&#9679;&#9679;</span></div>
+    </section>
+
+    <section class="block">
+      <div class="label">GOAL</div>
+      <p id="goal">Deliver 3 letters to the marked chimneys, then reach the green stairs unseen.</p>
+    </section>
+
+    <section class="block">
+      <div class="label">GUARD ROSTER</div>
+      <div class="row"><span>Watchman Odo</span><span id="odoStatus" class="value">PATROL &middot; 14m</span></div>
+      <div class="row"><span>Watchman Fen</span><span id="fenStatus" class="value">PATROL &middot; 9m</span></div>
+    </section>
+
+    <section class="block">
+      <div class="label">LEGEND</div>
+      <ul id="legend">
+        <li><i class="sw chimney"></i>CHIMNEY: cover — blocks sight</li>
+        <li><i class="sw tank"></i>WATER TANK: cover</li>
+        <li><i class="sw skylight"></i>SKYLIGHT: danger — do not step on</li>
+        <li><i class="sw line"></i>LAUNDRY LINE: click to zip across</li>
+        <li><i class="sw pigeon"></i>PIGEON: runs scare them — noise!</li>
+        <li><i class="sw exit"></i>EXIT: green stairs</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <div class="label">CONTROLS</div>
+      <ul id="controls">
+        <li>WASD / arrows — move</li>
+        <li>SHIFT — run (loud)</li>
+        <li>C — crouch (slow, hidden)</li>
+        <li>CLICK laundry line — zip across</li>
+        <li>CLICK ground — throw pebble</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <div class="label">MINIMAP</div>
+      <canvas id="minimap" width="280" height="110"></canvas>
+    </section>
+  </aside>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
